@@ -20,7 +20,7 @@ pip install -r requirements.txt
 python run_report.py
 Ensure you’ve set up AWS CLI credentials (the script uses Cost Explorer).
 
-Tech Stack
+## Tech Stack
 Python 3.10+
 
 Boto3 (AWS SDK for Python)
@@ -31,14 +31,14 @@ WeasyPrint (HTML → PDF rendering)
 
 Matplotlib (visualizations)
 
-Roadmap
+## Roadmap
 Expand High-Impact Checks (S3, EBS, Data Transfer)
 
 Add anomaly detection & heuristics
 
 Enhance narrative insights for executive summaries
 
-License
+## License
 MIT License — see LICENSE for details.
 
 This project is part of my portfolio demonstrating applied FinOps and AWS reporting skills.
