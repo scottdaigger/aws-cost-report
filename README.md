@@ -5,6 +5,9 @@ This project is the **Minimum Viable Product (MVP)** for **Alpenglow Cloud Consu
 The tool pulls billing data via AWS Cost Explorer and generates **clean, client-ready reports (HTML + PDF)**.  
 Reports summarize both **short-term (30-day)** and **long-term (12-month)** usage and costs, highlighting **potential savings opportunities**.
 
+Sample output at:
+https://github.com/scottdaigger/aws-cost-report/blob/main/reports/assets/img/Report%20sample%20screenshot.png
+
 ## Features
 - **30-Day Daily View**: Spot cost spikes or anomalies  
 - **12-Month Monthly View**: Track long-term trends  
