@@ -1,0 +1,170 @@
+/* Base styles */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  color: #333;
+  background: #fafafa;
+}
+
+.wrap {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+h1, h2, h3 {
+  font-weight: 600;
+  margin: 1rem 0 0.5rem;
+}
+
+h1 { font-size: 1.75rem; }
+h2 {
+  font-size: 1.3rem;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 0.3rem;
+}
+h3 { font-size: 1.1rem; margin-top: 1rem; }
+
+/* Header */
+header {
+  background-color: #ffffff;
+  border-bottom: 4px solid #001f3f; /* Navy divider */
+  padding: 1rem 0;
+}
+
+header .wrap.head {
+  display: flex;
+  justify-content: flex-start;
+}
+
+header .brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+header .brand img {
+  height: 60px;
+  margin-bottom: 10px;
+}
+
+header .brand .report-info h1 {
+  margin: 0;
+  color: #001f3f;
+  font-size: 1.6rem;
+  white-space: nowrap;
+}
+
+header .brand .report-info .meta {
+  margin-top: 0.4rem;
+  font-size: 0.95rem;
+  color: #001f3f;
+  line-height: 1.4;
+}
+
+/* Bullets (CEO summary) */
+ul.bullets {
+  list-style: disc outside;
+  padding-left: 1.2rem;
+  margin: 0.5rem 0 1rem;
+}
+ul.bullets li {
+  margin-bottom: 0.3rem;
+  font-size: 1rem;
+}
+
+/* Callouts */
+.callouts {
+  margin: 1rem 0;
+  padding: 0.75rem 1rem;
+  background: #f9f9f9;
+  border-left: 4px solid #001f3f;
+}
+.callouts h3 {
+  margin-top: 0;
+}
+
+/* Anomaly highlights */
+.anomaly {
+  color: #e63946;
+  font-weight: 600;
+}
+.card .v.accent, .anomaly { color: #e63946; }
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.9rem;
+}
+table th, table td {
+  padding: 0.4rem 0.6rem;
+  border-bottom: 1px solid #ddd;
+}
+table th {
+  text-align: left;
+  background: #f2f2f2;
+}
+table td.right { text-align: right; }
+
+.note {
+  font-size: 0.85rem;
+  color: #555;
+  margin: 0.5rem 0;
+}
+
+/* Charts */
+.charts { margin: 1rem 0; }
+.chart {
+  margin: 1rem 0;
+}
+.chart img {
+  max-width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  display: block;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #666;
+  margin: 2rem 0 1rem;
+}
+
+/* --- Print controls for PDF parity --- */
+@page {
+  size: A4;
+  margin: 18mm 15mm;
+}
+
+@media print {
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  body { background: #fff !important; }
+  .wrap { max-width: none; padding: 0; }
+
+  header { border-bottom: 2pt solid #001f3f; padding: 10pt 0 8pt; }
+  header .brand img { height: 42pt; margin-bottom: 6pt; }
+  header .brand .report-info h1 { font-size: 16pt; white-space: nowrap; }
+  header .brand .report-info .meta { font-size: 10pt; }
+
+  body { font-size: 11pt; }
+  h2 { font-size: 12pt; border-bottom: 1pt solid #ccc; }
+  h3 { font-size: 11pt; }
+
+  /* Page break controls */
+  .avoid-break { break-inside: avoid; }
+  .page-break { break-before: page; }
+  .cards, .card, table, .chart, .callouts, ul.bullets { break-inside: avoid; }
+
+  img { max-width: 100%; height: auto; }
+}
+
+

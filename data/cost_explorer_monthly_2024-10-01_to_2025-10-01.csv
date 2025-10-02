@@ -1,0 +1,8 @@
+month_start,service,amount,unit
+2025-09-01,AWS Cost Explorer,0.940000,USD
+2025-09-01,Amazon DynamoDB,0.000001,USD
+2025-09-01,EC2 - Other,0.152002,USD
+2025-09-01,Amazon Elastic Compute Cloud - Compute,0.989063,USD
+2025-09-01,Amazon Simple Storage Service,0.012360,USD
+2025-09-01,Amazon Virtual Private Cloud,0.852646,USD
+2025-09-01,Tax,0.150000,USD

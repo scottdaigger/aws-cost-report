@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Alpenglow AWS Cost Report — test-aws-client — 2025-09-01_to_2025-10-01</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+
+<body>
+  <!-- ===== Header ===== -->
+  <header>
+    <div class="wrap head">
+      <div class="brand">
+        
+          <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjcwIiBoZWlnaHQ9IjcyIiB2aWV3Qm94PSIwIDAgMjcwIDcyIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNOTkuNDMzOCAzNC42NjI4Qzk5LjcxNTggMzUuNDg1MyA5OS45ODYgMzYuMDg0NiAxMDAuMjQ1IDM2LjQ2MDZDMTAwLjUwMyAzNi44MTMxIDEwMC44MDkgMzcuMDQ4MSAxMDEuMTYxIDM3LjE2NTZDMTAxLjUzNyAzNy4yNTk2IDEwMi4wMzEgMzcuMzMwMSAxMDIuNjQyIDM3LjM3NzFWMzguMTg3OUg5NC4yMTY3VjM3LjM3NzFDOTUuMDE1NyAzNy4zMzAxIDk1LjYwMzIgMzcuMjQ3OSA5NS45NzkyIDM3LjEzMDRDOTYuMzc4NyAzNy4wMTI4IDk2LjYwMiAzNi43NjYxIDk2LjY0OSAzNi4zOTAxQzk2LjY5NiAzNi4wMTQxIDk2LjU3ODUgMzUuNDM4MyA5Ni4yOTY1IDM0LjY2MjhMOTQuMjg3MiAyOC41OTk3Qzk0LjE2OTcgMjguNzE3MiA5My45OTM1IDI4Ljc5OTUgOTMuNzU4NSAyOC44NDY1QzkzLjUyMzUgMjguODcgOTMuMjc2NyAyOC44ODE3IDkzLjAxODIgMjguODgxN0g4OC40MDA0Qzg3Ljg4MzQgMjguODgxNyA4Ny40OTU2IDI4Ljk0MDUgODcuMjM3MSAyOS4wNThDODYuOTc4NiAyOS4xNzU1IDg2Ljc1NTQgMjkuNDkyOCA4Ni41Njc0IDMwLjAwOThMODQuOTEwNiAzNC42NjI4Qzg0LjYwNTEgMzUuNTU1OCA4NC42MDUxIDM2LjIyNTYgODQuOTEwNiAzNi42NzIxQzg1LjIzOTYgMzcuMDk1MSA4Ni4xNTYxIDM3LjMzMDEgODcuNjYwMSAzNy4zNzcxVjM4LjE4NzlIODAuMzYzM1YzNy4zNzcxQzgxLjExNTMgMzcuMzMwMSA4MS43MDI4IDM3LjA5NTEgODIuMTI1OCAzNi42NzIxQzgyLjU3MjMgMzYuMjI1NiA4Mi45NjAxIDM1LjU1NTggODMuMjg5MSAzNC42NjI4TDg5LjUyODQgMTcuNTMxMUM4OS43NjM0IDE2LjkyMDEgODkuOTg2NyAxNi4zMjA4IDkwLjE5ODIgMTUuNzMzM0M5MC40MDk3IDE1LjE0NTggOTAuNTk3NyAxNC41NDY2IDkwLjc2MjIgMTMuOTM1NUg5Mi40ODk0QzkyLjY1MzkgMTQuNTQ2NiA5Mi44MzAyIDE1LjE0NTggOTMuMDE4MiAxNS43MzMzQzkzLjIyOTcgMTYuMzIwOCA5My40NTMgMTYuOTIwMSA5My42ODggMTcuNTMxMUw5OS40MzM4IDM0LjY2MjhaTTkzLjA4ODcgMjcuNjEyN0M5My4zOTQyIDI3LjYxMjcgOTMuNjA1NyAyNy41Nzc1IDkzLjcyMzIgMjcuNTA3QzkzLjg0MDcgMjcuNDEzIDkzLjg0MDcgMjcuMjI1IDkzLjcyMzIgMjYuOTQzTDkwLjgzMjcgMTguMzc3MUg5MC43NjIyTDg3LjM3ODEgMjcuNzE4NUM4Ny40OTU2IDI3LjY3MTUgODcuNjM2NiAyNy42NDggODcuODAxMSAyNy42NDhDODcuOTY1NiAyNy42MjQ1IDg4LjE1MzYgMjcuNjEyNyA4OC4zNjUxIDI3LjYxMjdIOTMuMDg4N1oiIGZpbGw9IiMwMTE1MkUiLz4KPHBhdGggZD0iTTExOC45OSAzMi42ODg4SDExOS44TDExOS41MTggMzguMTg3OUgxMDQuOTk1VjM3LjM3NzFDMTA1LjUxMiAzNy4zNTM2IDEwNS45MjMgMzcuMjgzMSAxMDYuMjI5IDM3LjE2NTZDMTA2LjUzNCAzNy4wNDgxIDEwNi43NTggMzYuODAxMyAxMDYuODk5IDM2LjQyNTNDMTA3LjA0IDM2LjA0OTMgMTA3LjExIDM1LjQ2MTggMTA3LjExIDM0LjY2MjhWMjMuMjA2NEMxMDcuMTEgMjIuMzgzOSAxMDcuMDI4IDIxLjc5NjQgMTA2Ljg2MyAyMS40NDM5QzEwNi42OTkgMjEuMDY3OSAxMDYuNDA1IDIwLjgyMTEgMTA1Ljk4MiAyMC43MDM2QzEwNS41NTkgMjAuNTg2MSAxMDQuOTM2IDIwLjUxNTYgMTA0LjExNCAyMC40OTIxVjE5LjY4MTRIMTEyLjA4VjIwLjQ5MjFDMTExLjU2MyAyMC41MTU2IDExMS4xNTIgMjAuNTg2MSAxMTAuODQ3IDIwLjcwMzZDMTEwLjU0MSAyMC44MjExIDExMC4zMTggMjEuMDY3OSAxMTAuMTc3IDIxLjQ0MzlDMTEwLjAzNiAyMS43OTY0IDEwOS45NjUgMjIuMzgzOSAxMDkuOTY1IDIzLjIwNjRWMzQuNjYyOEMxMDkuOTY1IDM1LjY3MzMgMTEwLjE0MiAzNi4zMDc4IDExMC40OTQgMzYuNTY2M0MxMTAuODcgMzYuODAxMyAxMTEuNTg3IDM2LjkxODggMTEyLjY0NCAzNi45MTg4SDExNS4wMDZDMTE2LjM5MyAzNi45MTg4IDExNy4zOCAzNi41MDc2IDExNy45NjcgMzUuNjg1MUMxMTguNTU1IDM0LjgzOTEgMTE4Ljg5NiAzMy44NDAzIDExOC45OSAzMi42ODg4WiIgZmlsbD0iIzAxMTUyRSIvPgo8cGF0aCBkPSJNMTIyLjc5MiAzOC4xODc5VjM3LjM3NzFDMTIzLjMwOSAzNy4zNTM2IDEyMy43MjEgMzcuMjgzMSAxMjQuMDI2IDM3LjE2NTZDMTI0LjMzMiAzNy4wNDgxIDEyNC41NTUgMzYuODAxMyAxMjQuNjk2IDM2LjQyNTNDMTI0LjgzNyAzNi4wNDkzIDEyNC45MDcgMzUuNDYxOCAxMjQuOTA3IDM0LjY2MjhWMjMuMjA2NEMxMjQuOTA3IDIyLjM4MzkgMTI0LjgyNSAyMS43OTY0IDEyNC42NjEgMjEuNDQzOUMxMjQuNDk2IDIxLjA2NzkgMTI0LjIwMiAyMC44MjExIDEyMy43NzkgMjAuNzAzNkMxMjMuMzU2IDIwLjU4NjEgMTIyLjczNCAyMC41MTU2IDEyMS45MTEgMjAuNDkyMVYxOS42ODE0SDEyNC45MDdDMTI2LjM2NCAxOS42ODE0IDEyNy41MTYgMTkuNjU3OSAxMjguMzYyIDE5LjYxMDlDMTI5LjIzMiAxOS41NDA0IDEzMC4wMDcgMTkuNTA1MSAxMzAuNjg5IDE5LjUwNTFDMTMzLjIwMyAxOS41MDUxIDEzNS4wMDEgMTkuOTE2NCAxMzYuMDgyIDIwLjczODlDMTM3LjE4NiAyMS41NjE0IDEzNy43MzkgMjIuNTk1NCAxMzcuNzM5IDIzLjg0MDlDMTM3LjczOSAyNC40NzU0IDEzNy41ODYgMjUuMTU2OSAxMzcuMjggMjUuODg1NUMxMzYuOTc1IDI2LjU5MDUgMTM2LjQ3IDI3LjIzNjcgMTM1Ljc2NSAyNy44MjQyQzEzNS4wNiAyOC40MTE3IDEzNC4xMDggMjguODU4MiAxMzIuOTA5IDI5LjE2MzdDMTMxLjcxMSAyOS40NDU3IDEzMC4yMyAyOS41MDQ1IDEyOC40NjggMjkuMzRWMjguMjgyNUMxMjkuNzM3IDI4LjQgMTMwLjc3MSAyOC4zNDEyIDEzMS41NyAyOC4xMDYyQzEzMi4zOTIgMjcuODcxMiAxMzMuMDI3IDI3LjUzMDUgMTMzLjQ3MyAyNy4wODRDMTMzLjkyIDI2LjYzNzUgMTM0LjIyNSAyNi4xNTU3IDEzNC4zOSAyNS42Mzg3QzEzNC41NTQgMjUuMDk4MiAxMzQuNjM3IDI0LjU4MTIgMTM0LjYzNyAyNC4wODc3QzEzNC42MzcgMjIuODQyMiAxMzQuMjQ5IDIxLjk4NDQgMTMzLjQ3MyAyMS41MTQ0QzEzMi42OTggMjEuMDIwOSAxMzEuNjg3IDIwLjc3NDEgMTMwLjQ0MiAyMC43NzQxQzEyOS41MjUgMjAuNzc0MSAxMjguODQ0IDIwLjkxNTEgMTI4LjM5NyAyMS4xOTcxQzEyNy45NzQgMjEuNDU1NiAxMjcuNzYzIDIyLjEyNTQgMTI3Ljc2MyAyMy4yMDY0VjM0LjY2MjhDMTI3Ljc2MyAzNS40NjE4IDEyNy44NDUgMzYuMDQ5MyAxMjguMDEgMzYuNDI1M0MxMjguMTk4IDM2LjgwMTMgMTI4LjU1IDM3LjA0ODEgMTI5LjA2NyAzNy4xNjU2QzEyOS42MDggMzcuMjgzMSAxMzAuMzk1IDM3LjM1MzYgMTMxLjQyOSAzNy4zNzcxVjM4LjE4NzlIMTIyLjc5MloiIGZpbGw9IiMwMTE1MkUiLz4KPHBhdGggZD0iTTE0MS4zMTMgMzguMTg3OVYzNy4zNzcxQzE0MS44MyAzNy4zNTM2IDE0Mi4yNDEgMzcuMjgzMSAxNDIuNTQ2IDM3LjE2NTZDMTQyLjg1MiAzNy4wNDgxIDE0My4wNzUgMzYuODAxMyAxNDMuMjE2IDM2LjQyNTNDMTQzLjM1NyAzNi4wNDkzIDE0My40MjggMzUuNDYxOCAxNDMuNDI4IDM0LjY2MjhWMjMuMjA2NEMxNDMuNDI4IDIyLjM4MzkgMTQzLjM0NSAyMS43OTY0IDE0My4xODEgMjEuNDQzOUMxNDMuMDE2IDIxLjA2NzkgMTQyLjcyMyAyMC44MjExIDE0Mi4zIDIwLjcwMzZDMTQxLjg3NyAyMC41ODYxIDE0MS4yNTQgMjAuNTE1NiAxNDAuNDMxIDIwLjQ5MjFWMTkuNjgxNEgxNTQuNjM3VjIzLjk0NjdIMTUzLjgyN0MxNTMuODAzIDIzLjI4ODcgMTUzLjY4NiAyMi43NDgyIDE1My40NzQgMjIuMzI1MkMxNTMuMjYzIDIxLjg3ODcgMTUyLjg3NSAyMS41Mzc5IDE1Mi4zMTEgMjEuMzAyOUMxNTEuNzcgMjEuMDY3OSAxNTAuOTYgMjAuOTUwNCAxNDkuODc5IDIwLjk1MDRIMTQ3LjgzNEMxNDcuMzQxIDIwLjk1MDQgMTQ2Ljk1MyAyMS4wNjc5IDE0Ni42NzEgMjEuMzAyOUMxNDYuNDEyIDIxLjUzNzkgMTQ2LjI4MyAyMi4xNzI0IDE0Ni4yODMgMjMuMjA2NFYyNy42ODMyQzE0Ni40NzEgMjcuNTQyMiAxNDYuNjk0IDI3LjQ0ODIgMTQ2Ljk1MyAyNy40MDEyQzE0Ny4yMzUgMjcuMzU0MiAxNDcuNTY0IDI3LjMzMDcgMTQ3Ljk0IDI3LjMzMDdIMTUwLjg2NkMxNTEuNTQ3IDI3LjMzMDcgMTUyLjA2NCAyNy4xODk3IDE1Mi40MTcgMjYuOTA3N0MxNTIuNzkzIDI2LjYyNTcgMTUyLjk5MiAyNi4wOTcgMTUzLjAxNiAyNS4zMjE0SDE1My44MjdWMzAuNjA5SDE1My4wMTZDMTUyLjk5MiAyOS44MzM1IDE1Mi44MjggMjkuMzA0NyAxNTIuNTIyIDI5LjAyMjdDMTUyLjI0IDI4Ljc0MDcgMTUxLjY4OCAyOC41OTk3IDE1MC44NjYgMjguNTk5N0gxNDguMDFDMTQ3LjM3NiAyOC41OTk3IDE0Ni45MjkgMjguNzA1NSAxNDYuNjcxIDI4LjkxN0MxNDYuNDEyIDI5LjEyODUgMTQ2LjI4MyAyOS41Mzk4IDE0Ni4yODMgMzAuMTUwOFYzNC42NjI4QzE0Ni4yODMgMzUuNjczMyAxNDYuNDU5IDM2LjMwNzggMTQ2LjgxMiAzNi41NjYzQzE0Ny4xODggMzYuODAxMyAxNDcuOTA1IDM2LjkxODggMTQ4Ljk2MiAzNi45MTg4SDE1MS40NjVDMTUyLjk5MiAzNi45MTg4IDE1NC4wNzMgMzYuNTA3NiAxNTQuNzA4IDM1LjY4NTFDMTU1LjM0MiAzNC44NjI2IDE1NS43MDcgMzMuODc1NiAxNTUuODAxIDMyLjcyNEgxNTYuNjExTDE1Ni4zMjkgMzguMTg3OUgxNDEuMzEzWiIgZmlsbD0iIzAxMTUyRSIvPgo8cGF0aCBkPSJNMTc2LjUzMyAzOC40Njk5QzE3Ni4xODEgMzcuOTI5NCAxNzUuNzkzIDM3LjM4ODkgMTc1LjM3IDM2Ljg0ODNDMTc0Ljk3MSAzNi4zMDc4IDE3NC4zOTUgMzUuNjQ5OCAxNzMuNjQzIDM0Ljg3NDNMMTY0LjAyIDI0Ljc5MjdIMTYzLjk0OVYzNC42NjI4QzE2My45NDkgMzUuNTMyMyAxNjQuMTYxIDM2LjE5MDMgMTY0LjU4NCAzNi42MzY4QzE2NS4wMyAzNy4wODMzIDE2NS45NDcgMzcuMzMwMSAxNjcuMzMzIDM3LjM3NzFWMzguMTg3OUgxNjAuMjQ4VjM3LjM3NzFDMTYxLjAyMyAzNy4zMzAxIDE2MS41NjQgMzcuMDgzMyAxNjEuODY5IDM2LjYzNjhDMTYyLjE5OCAzNi4xOTAzIDE2Mi4zNjMgMzUuNTMyMyAxNjIuMzYzIDM0LjY2MjhWMjMuMjA2NEMxNjIuMzYzIDIyLjI4OTkgMTYyLjEwNCAyMS42MjAxIDE2MS41ODcgMjEuMTk3MUMxNjEuMDk0IDIwLjc3NDEgMTYwLjM1MyAyMC41MzkxIDE1OS4zNjYgMjAuNDkyMVYxOS42ODE0SDE2My44MDhDMTY0LjE2MSAyMC4yNjg5IDE2NC41MzcgMjAuODMyOSAxNjQuOTM2IDIxLjM3MzRDMTY1LjMzNiAyMS44OTA0IDE2NS43OTQgMjIuNDE5MiAxNjYuMzExIDIyLjk1OTdMMTc2LjA0IDMzLjA3NjVIMTc2LjExVjIzLjIwNjRDMTc2LjExIDIyLjMzNjkgMTc1LjkxMSAyMS42Nzg5IDE3NS41MTEgMjEuMjMyNEMxNzUuMTM1IDIwLjc4NTkgMTc0LjMzNiAyMC41MzkxIDE3My4xMTQgMjAuNDkyMVYxOS42ODE0SDE3OS44NDdWMjAuNDkyMUMxNzkuMDcxIDIwLjUzOTEgMTc4LjUxOSAyMC43ODU5IDE3OC4xOSAyMS4yMzI0QzE3Ny44ODUgMjEuNjc4OSAxNzcuNzMyIDIyLjMzNjkgMTc3LjczMiAyMy4yMDY0VjM0LjY2MjhDMTc3LjczMiAzNS4zMjA4IDE3Ny43MzIgMzUuOTU1MyAxNzcuNzMyIDM2LjU2NjNDMTc3Ljc1NSAzNy4xNTM5IDE3Ny43NzkgMzcuNzg4NCAxNzcuODAyIDM4LjQ2OTlIMTc2LjUzM1oiIGZpbGw9IiMwMTE1MkUiLz4KPHBhdGggZD0iTTE5Mi45NjEgMzguNzE2NkMxOTEuMjkyIDM4LjcxNjYgMTg5Ljg0NyAzOC40NDY0IDE4OC42MjUgMzcuOTA1OUMxODcuNDI2IDM3LjM0MTkgMTg2LjQzOSAzNi42MDE2IDE4NS42NjQgMzUuNjg1MUMxODQuOTEyIDM0Ljc2ODYgMTg0LjM0OCAzMy43NDYzIDE4My45NzIgMzIuNjE4M0MxODMuNjE5IDMxLjQ5MDMgMTgzLjQ0MyAzMC4zNTA1IDE4My40NDMgMjkuMTk5QzE4My40NDMgMjcuMzE5IDE4My44NzggMjUuNjI2OSAxODQuNzQ3IDI0LjEyMjlDMTg1LjY0IDIyLjU5NTQgMTg2Ljg3NCAyMS4zODUxIDE4OC40NDkgMjAuNDkyMUMxOTAuMDQ3IDE5LjU5OTEgMTkxLjkxNSAxOS4xNTI2IDE5NC4wNTMgMTkuMTUyNkMxOTUuMjI4IDE5LjE1MjYgMTk2LjM2OCAxOS4yODE5IDE5Ny40NzMgMTkuNTQwNEMxOTguNjAxIDE5Ljc5ODkgMTk5LjU2NCAyMC4xMDQ0IDIwMC4zNjMgMjAuNDU2OVYyNS4wMDQySDE5OS41NTNDMTk5LjMxOCAyMy40NTMyIDE5OC42MjQgMjIuMzI1MiAxOTcuNDczIDIxLjYyMDFDMTk2LjM0NSAyMC45MTUxIDE5NS4wNCAyMC41NjI2IDE5My41NiAyMC41NjI2QzE5MS4zNTEgMjAuNTYyNiAxODkuNjM1IDIxLjI2NzYgMTg4LjQxMyAyMi42Nzc3QzE4Ny4yMTUgMjQuMDY0MiAxODYuNjE2IDI2LjAxNDcgMTg2LjYxNiAyOC41MjkyQzE4Ni42MTYgMjkuNTg2OCAxODYuNzMzIDMwLjY0NDMgMTg2Ljk2OCAzMS43MDE4QzE4Ny4yMDMgMzIuNzM1OCAxODcuNTc5IDMzLjY4NzYgMTg4LjA5NiAzNC41NTcxQzE4OC42MzcgMzUuNDAzMSAxODkuMzMgMzYuMDg0NiAxOTAuMTc2IDM2LjYwMTZDMTkxLjAyMiAzNy4xMTg2IDE5Mi4wNTYgMzcuMzc3MSAxOTMuMjc4IDM3LjM3NzFDMTk0LjUyMyAzNy4zNzcxIDE5NS41NjkgMzcuMTUzOSAxOTYuNDE1IDM2LjcwNzNDMTk3LjI2MSAzNi4yMzczIDE5Ny44MDIgMzUuNjM4MSAxOTguMDM3IDM0LjkwOTZDMTk4LjEwNyAzNC43MjE2IDE5OC4xNzggMzQuNDUxMyAxOTguMjQ4IDM0LjA5ODhDMTk4LjMxOSAzMy43NDYzIDE5OC4zNTQgMzMuMjc2MyAxOTguMzU0IDMyLjY4ODhDMTk4LjM1NCAzMi4wMzA4IDE5OC4yNzIgMzEuNTQ5IDE5OC4xMDcgMzEuMjQzNUMxOTcuOTY2IDMwLjkxNDUgMTk3LjY5NiAzMC43MDMgMTk3LjI5NiAzMC42MDlDMTk2Ljg5NyAzMC40OTE1IDE5Ni4yOTggMzAuNDIxIDE5NS40OTkgMzAuMzk3NVYyOS41ODY4SDIwMi4xMjZWMzAuMzk3NUMyMDEuNjMyIDMwLjQyMSAyMDEuMzAzIDMwLjU3MzggMjAxLjEzOSAzMC44NTU4QzIwMC45OTggMzEuMTE0MyAyMDAuOTI3IDMxLjUxMzggMjAwLjkyNyAzMi4wNTQzVjMyLjY4ODhDMjAwLjkyNyAzMy4wNjQ4IDIwMC45MzkgMzMuNDI5MSAyMDAuOTYzIDMzLjc4MTZDMjAwLjk4NiAzNC4xMzQxIDIwMS4wNjggMzQuNjE1OCAyMDEuMjA5IDM1LjIyNjhDMjAwLjc2MyAzNS43MjAzIDIwMC4xODcgMzYuMjM3MyAxOTkuNDgyIDM2Ljc3NzhDMTk4Ljc3NyAzNy4zMTg0IDE5Ny44OTYgMzcuNzc2NiAxOTYuODM4IDM4LjE1MjZDMTk1Ljc4MSAzOC41Mjg2IDE5NC40ODggMzguNzE2NiAxOTIuOTYxIDM4LjcxNjZaIiBmaWxsPSIjMDExNTJFIi8+CjxwYXRoIGQ9Ik0yMjAuMDI1IDMyLjY4ODhIMjIwLjgzNkwyMjAuNTU0IDM4LjE4NzlIMjA2LjAzVjM3LjM3NzFDMjA2LjU0NyAzNy4zNTM2IDIwNi45NTkgMzcuMjgzMSAyMDcuMjY0IDM3LjE2NTZDMjA3LjU3IDM3LjA0ODEgMjA3Ljc5MyAzNi44MDEzIDIwNy45MzQgMzYuNDI1M0MyMDguMDc1IDM2LjA0OTMgMjA4LjE0NSAzNS40NjE4IDIwOC4xNDUgMzQuNjYyOFYyMy4yMDY0QzIwOC4xNDUgMjIuMzgzOSAyMDguMDYzIDIxLjc5NjQgMjA3Ljg5OSAyMS40NDM5QzIwNy43MzQgMjEuMDY3OSAyMDcuNDQgMjAuODIxMSAyMDcuMDE3IDIwLjcwMzZDMjA2LjU5NCAyMC41ODYxIDIwNS45NzIgMjAuNTE1NiAyMDUuMTQ5IDIwLjQ5MjFWMTkuNjgxNEgyMTMuMTE2VjIwLjQ5MjFDMjEyLjU5OSAyMC41MTU2IDIxMi4xODcgMjAuNTg2MSAyMTEuODgyIDIwLjcwMzZDMjExLjU3NiAyMC44MjExIDIxMS4zNTMgMjEuMDY3OSAyMTEuMjEyIDIxLjQ0MzlDMjExLjA3MSAyMS43OTY0IDIxMS4wMDEgMjIuMzgzOSAyMTEuMDAxIDIzLjIwNjRWMzQuNjYyOEMyMTEuMDAxIDM1LjY3MzMgMjExLjE3NyAzNi4zMDc4IDIxMS41MjkgMzYuNTY2M0MyMTEuOTA1IDM2LjgwMTMgMjEyLjYyMiAzNi45MTg4IDIxMy42OCAzNi45MTg4SDIxNi4wNDFDMjE3LjQyOCAzNi45MTg4IDIxOC40MTUgMzYuNTA3NiAyMTkuMDAzIDM1LjY4NTFDMjE5LjU5IDM0LjgzOTEgMjE5LjkzMSAzMy44NDAzIDIyMC4wMjUgMzIuNjg4OFoiIGZpbGw9IiMwMTE1MkUiLz4KPHBhdGggZD0iTTIzMi42NDkgMTkuMTUyNkMyMzQuNTk5IDE5LjE1MjYgMjM2LjI3OSAxOS42MTA5IDIzNy42ODkgMjAuNTI3NEMyMzkuMTIzIDIxLjQ0MzkgMjQwLjIyNyAyMi42NTQyIDI0MS4wMDMgMjQuMTU4MkMyNDEuODAyIDI1LjYzODcgMjQyLjIwMSAyNy4yMzY3IDI0Mi4yMDEgMjguOTUyMkMyNDIuMjAxIDMwLjY5MTMgMjQxLjc5IDMyLjMwMSAyNDAuOTY4IDMzLjc4MTZDMjQwLjE2OSAzNS4yNjIxIDIzOS4wNTIgMzYuNDYwNiAyMzcuNjE5IDM3LjM3NzFDMjM2LjE4NSAzOC4yNzAxIDIzNC41MDUgMzguNzE2NiAyMzIuNTc4IDM4LjcxNjZDMjMwLjY1MSAzOC43MTY2IDIyOC45NzEgMzguMjU4NCAyMjcuNTM3IDM3LjM0MTlDMjI2LjEyNyAzNi40MjUzIDIyNS4wMjMgMzUuMjI2OCAyMjQuMjI0IDMzLjc0NjNDMjIzLjQ0OCAzMi4yNDIzIDIyMy4wNiAzMC42MzI1IDIyMy4wNiAyOC45MTdDMjIzLjA2IDI3LjE3OCAyMjMuNDYgMjUuNTY4MiAyMjQuMjU5IDI0LjA4NzdDMjI1LjA1OCAyMi42MDcyIDIyNi4xNzQgMjEuNDIwNCAyMjcuNjA4IDIwLjUyNzRDMjI5LjA2NSAxOS42MTA5IDIzMC43NDUgMTkuMTUyNiAyMzIuNjQ5IDE5LjE1MjZaTTIzMy4wNzIgMzcuMzA2NkMyMzQuNTA1IDM3LjMwNjYgMjM1LjY2OCAzNi45NjU4IDIzNi41NjEgMzYuMjg0M0MyMzcuNDU0IDM1LjU3OTMgMjM4LjExMiAzNC42NTExIDIzOC41MzUgMzMuNDk5NkMyMzguOTgyIDMyLjMyNDUgMjM5LjIwNSAzMS4wNDM4IDIzOS4yMDUgMjkuNjU3M0MyMzkuMjA1IDI3Ljk4ODcgMjM4LjkyMyAyNi40NzMgMjM4LjM1OSAyNS4xMDk5QzIzNy44MTkgMjMuNzIzNCAyMzcuMDMxIDIyLjYxODkgMjM1Ljk5NyAyMS43OTY0QzIzNC45NjMgMjAuOTczOSAyMzMuNjk0IDIwLjU2MjYgMjMyLjE5IDIwLjU2MjZDMjMwLjc1NyAyMC41NjI2IDIyOS41ODIgMjAuOTE1MSAyMjguNjY1IDIxLjYyMDFDMjI3Ljc3MiAyMi4zMDE3IDIyNy4xMTQgMjMuMjE4MiAyMjYuNjkxIDI0LjM2OTdDMjI2LjI2OCAyNS41MjEyIDIyNi4wNTcgMjYuODAyIDIyNi4wNTcgMjguMjEyQzIyNi4wNTcgMjkuODgwNSAyMjYuMzI3IDMxLjQwOCAyMjYuODY4IDMyLjc5NDVDMjI3LjQzMiAzNC4xNTc2IDIyOC4yMzEgMzUuMjUwMyAyMjkuMjY1IDM2LjA3MjhDMjMwLjMyMiAzNi44OTUzIDIzMS41OTEgMzcuMzA2NiAyMzMuMDcyIDM3LjMwNjZaIiBmaWxsPSIjMDExNTJFIi8+CjxwYXRoIGQ9Ik0yNTAuMjk1IDM4LjQ2OTlDMjUwLjIwMSAzNy44NTg5IDI1MC4xMTkgMzcuMzUzNiAyNTAuMDQ4IDM2Ljk1NDFDMjUwLjAwMSAzNi41MzExIDI0OS44ODQgMzYuMDE0MSAyNDkuNjk2IDM1LjQwMzFMMjQ2LjI3NiAyMy4yMDY0QzI0Ni4wNDEgMjIuMzgzOSAyNDUuODMgMjEuNzk2NCAyNDUuNjQyIDIxLjQ0MzlDMjQ1LjQ3NyAyMS4wNjc5IDI0NS4yODkgMjAuODIxMSAyNDUuMDc4IDIwLjcwMzZDMjQ0Ljg5IDIwLjU4NjEgMjQ0LjYzMSAyMC41MTU2IDI0NC4zMDIgMjAuNDkyMUwyNDQuMjY3IDE5LjY4MTRIMjUxLjM1M0wyNTEuMzg4IDIwLjQ5MjFDMjUwLjYxMiAyMC41MTU2IDI1MC4wMzcgMjAuNTk3OSAyNDkuNjYxIDIwLjczODlDMjQ5LjMwOCAyMC44NTY0IDI0OS4xMDggMjEuMTAzMSAyNDkuMDYxIDIxLjQ3OTFDMjQ5LjAzOCAyMS44MzE2IDI0OS4xMzIgMjIuNDA3NCAyNDkuMzQzIDIzLjIwNjRMMjUyLjEyOCAzMi44Mjk4SDI1Mi4xOTlMMjU3LjA5OCAxOS4zOTk0SDI1OC42ODVDMjU4Ljg3MyAyMC4wNTc0IDI1OS4wNzIgMjAuNjkxOSAyNTkuMjg0IDIxLjMwMjlDMjU5LjUxOSAyMS45MTM5IDI1OS43NTQgMjIuNTQ4NCAyNTkuOTg5IDIzLjIwNjRMMjYzLjU4NCAzMi44NjVIMjYzLjY1NUwyNjYuNDQgMjMuMjA2NEMyNjYuOTMzIDIxLjQ5MDkgMjY2LjA4NyAyMC41ODYxIDI2My45MDIgMjAuNDkyMUwyNjMuODY2IDE5LjY4MTRIMjY5Ljk2NUwyNzAgMjAuNDkyMUMyNjkuMTc4IDIwLjU4NjEgMjY4LjUwOCAyMS40OTA5IDI2Ny45OTEgMjMuMjA2NEwyNjQuNTAxIDM1LjQwMzFDMjY0LjMzNiAzNS45OTA2IDI2NC4yMDcgMzYuNDk1OCAyNjQuMTEzIDM2LjkxODhDMjY0LjAxOSAzNy4zNDE5IDI2My45MzcgMzcuODU4OSAyNjMuODY2IDM4LjQ2OTlIMjYyLjI4QzI2Mi4xMzkgMzcuODU4OSAyNjIuMDEgMzcuMzUzNiAyNjEuODkyIDM2Ljk1NDFDMjYxLjc3NSAzNi41MzExIDI2MS41OTkgMzYuMDE0MSAyNjEuMzY0IDM1LjQwMzFMMjU3LjIzOSAyMy45ODE5SDI1Ny4xNjlMMjUyLjc5OCAzNS40MDMxQzI1Mi41NjMgMzYuMDYxMSAyNTIuMzg3IDM2LjU4OTggMjUyLjI2OSAzNi45ODkzQzI1Mi4xNzUgMzcuMzY1NCAyNTIuMDY5IDM3Ljg1ODkgMjUxLjk1MiAzOC40Njk5SDI1MC4yOTVaIiBmaWxsPSIjMDExNTJFIi8+CjxwYXRoIGQ9Ik05My4zMTU4IDUwLjY2MjNIOTEuODQ3QzkxLjYxMiA0OS42OTYyIDkxLjEyMjQgNDguOTM5IDkwLjM3ODMgNDguMzkwNkM4OS42MzQxIDQ3Ljg0MjMgODguNzMzMyA0Ny41NjgxIDg3LjY3NTcgNDcuNTY4MUM4Ni4wNTY4IDQ3LjU2ODEgODQuODEgNDguMTk0OCA4My45MzUzIDQ5LjQ0ODJDODMuMTY1IDUwLjU0NDggODIuNzc5OCA1MS45ODEgODIuNzc5OCA1My43NTY1QzgyLjc3OTggNTUuNzQxIDgzLjI3NiA1Ny4yODgxIDg0LjI2ODIgNTguMzk3OUM4NS4xMjk5IDU5LjM1MDkgODYuMjUyNyA1OS44Mjc1IDg3LjYzNjYgNTkuODI3NUM4OC45MTYgNTkuODI3NSA4OS45NjcgNTkuNDA5NyA5MC43ODk1IDU4LjU3NDFDOTEuNTA3NiA1Ny44NDMgOTEuOTUxNSA1Ni44NzY5IDkyLjEyMTIgNTUuNjc1N0g5My40OTIxQzkzLjMyMjMgNTYuODc2OSA5Mi45NjMzIDU3Ljg2MjYgOTIuNDE1IDU4LjYzMjlDOTEuMzE4MyA2MC4yMjU3IDg5LjcxMjQgNjEuMDIyMSA4Ny41OTc0IDYxLjAyMjFDODUuNTYwNyA2MS4wMjIxIDgzLjk4MSA2MC4yNzc5IDgyLjg1ODIgNTguNzg5NUM4MS44NzkgNTcuNDk3IDgxLjM4OTQgNTUuNzk5OCA4MS4zODk0IDUzLjY5NzhDODEuMzg5NCA1MS4yODI1IDgyLjAzNTcgNDkuNDE1NSA4My4zMjgyIDQ4LjA5NjlDODQuNDM3OSA0Ni45NDggODUuOTA2NyA0Ni4zNzM1IDg3LjczNDUgNDYuMzczNUM4OS4yNzUxIDQ2LjM3MzUgOTAuNTU0NSA0Ni44MDQ0IDkxLjU3MjkgNDcuNjY2MUM5Mi40NjA3IDQ4LjQyMzMgOTMuMDQxNiA0OS40MjIgOTMuMzE1OCA1MC42NjIzWiIgZmlsbD0iIzAxMTUyRSIvPgo8cGF0aCBkPSJNOTguNzM3NCA0Ni42ODY5VjYwLjcwODdIOTcuNDA1N1Y0Ni42ODY5SDk4LjczNzRaIiBmaWxsPSIjMDExNTJFIi8+CjxwYXRoIGQ9Ik0xMDcuNDY0IDUwLjI3MDdDMTA4Ljk2NSA1MC4yNzA3IDExMC4xNDcgNTAuODI1NSAxMTEuMDA5IDUxLjkzNTNDMTExLjc2NiA1Mi45MDE0IDExMi4xNDUgNTQuMTM1MiAxMTIuMTQ1IDU1LjYzNjZDMTEyLjE0NSA1Ny4zNDY5IDExMS42NjEgNTguNjk4MSAxMTAuNjk1IDU5LjY5MDRDMTA5Ljg0NyA2MC41NTIxIDEwOC43NyA2MC45ODI5IDEwNy40NjQgNjAuOTgyOUMxMDUuOTYzIDYwLjk4MjkgMTA0Ljc4MSA2MC40MjggMTAzLjkxOSA1OS4zMTgzQzEwMy4xNjIgNTguMzUyMiAxMDIuNzg0IDU3LjEyNDkgMTAyLjc4NCA1NS42MzY2QzEwMi43ODQgNTMuOTEzMiAxMDMuMjY3IDUyLjU1NTQgMTA0LjIzMyA1MS41NjMyQzEwNS4wODEgNTAuNzAxNSAxMDYuMTU4IDUwLjI3MDcgMTA3LjQ2NCA1MC4yNzA3Wk0xMDcuNDY0IDUxLjM4NjlDMTA2LjM4IDUxLjM4NjkgMTA1LjUzMiA1MS44MjQzIDEwNC45MTggNTIuNjk5QzEwNC4zODMgNTMuNDU2MyAxMDQuMTE1IDU0LjQzNTQgMTA0LjExNSA1NS42MzY2QzEwNC4xMTUgNTcuMDA3NCAxMDQuNDYxIDU4LjA4NDUgMTA1LjE1MyA1OC44Njc5QzEwNS43NDEgNTkuNTMzNyAxMDYuNTExIDU5Ljg2NjYgMTA3LjQ2NCA1OS44NjY2QzEwOC41NDggNTkuODY2NiAxMDkuMzk2IDU5LjQyOTMgMTEwLjAxIDU4LjU1NDVDMTEwLjU0NSA1Ny43OTczIDExMC44MTMgNTYuODI0NiAxMTAuODEzIDU1LjYzNjZDMTEwLjgxMyA1NC4yNjU3IDExMC40NjcgNTMuMTg4NiAxMDkuNzc1IDUyLjQwNTNDMTA5LjE3NCA1MS43MjY0IDEwOC40MDQgNTEuMzg2OSAxMDcuNDY0IDUxLjM4NjlaIiBmaWxsPSIjMDExNTJFIi8+CjxwYXRoIGQ9Ik0xMjQuMDE1IDYwLjcwODdIMTIyLjc2MlY1OS4yNzkxQzEyMS45OTEgNjAuNDE1IDEyMC45MzQgNjAuOTgyOSAxMTkuNTg5IDYwLjk4MjlDMTE4LjQxNCA2MC45ODI5IDExNy41MjYgNjAuNjMwNCAxMTYuOTI2IDU5LjkyNTRDMTE2LjQ2OSA1OS40MDMyIDExNi4yNCA1OC41ODcyIDExNi4yNCA1Ny40Nzc0VjUwLjU0NDhIMTE3LjQ5NFY1Ny4yMDMzQzExNy40OTQgNTguMTQzMyAxMTcuNjU3IDU4Ljc5NjEgMTE3Ljk4MyA1OS4xNjE2QzExOC4zNzUgNTkuNjMxNiAxMTguOTYzIDU5Ljg2NjYgMTE5Ljc0NiA1OS44NjY2QzEyMC42MjEgNTkuODY2NiAxMjEuMzUyIDU5LjU3MjkgMTIxLjkzOSA1OC45ODU0QzEyMi40ODggNTguNDM3IDEyMi43NjIgNTcuNjE0NSAxMjIuNzYyIDU2LjUxNzhWNTAuNTQ0OEgxMjQuMDE1VjYwLjcwODdaIiBmaWxsPSIjMDExNTJFIi8+CjxwYXRoIGQ9Ik0xMzcuMDcyIDQ2LjY4NjlWNjAuNzA4N0gxMzUuNzk5VjU5LjI0QzEzNC45NjMgNjAuNDAxOSAxMzMuODczIDYwLjk4MjkgMTMyLjUyOCA2MC45ODI5QzEzMS4wOTIgNjAuOTgyOSAxMjkuOTYzIDYwLjQyOCAxMjkuMTQgNTkuMzE4M0MxMjguNDIyIDU4LjM1MjIgMTI4LjA2MyA1Ny4xMTg0IDEyOC4wNjMgNTUuNjE3QzEyOC4wNjMgNTMuOTE5NyAxMjguNTI3IDUyLjU2ODUgMTI5LjQ1NCA1MS41NjMyQzEzMC4yNjMgNTAuNzAxNSAxMzEuMjg4IDUwLjI3MDcgMTMyLjUyOCA1MC4yNzA3QzEzMy44NzMgNTAuMjcwNyAxMzQuOTYzIDUwLjg2NDcgMTM1Ljc5OSA1Mi4wNTI4VjQ2LjY4NjlIMTM3LjA3MlpNMTMyLjU2NyA1MS4zODY5QzEzMS40OTcgNTEuMzg2OSAxMzAuNjY4IDUxLjgxNzggMTMwLjA4IDUyLjY3OTVDMTI5LjU3MSA1My40MjM2IDEyOS4zMTcgNTQuNDA5MyAxMjkuMzE3IDU1LjYzNjZDMTI5LjMxNyA1Ny4wNDY2IDEyOS42NDMgNTguMTMwMiAxMzAuMjk2IDU4Ljg4NzRDMTMwLjg3IDU5LjU0MDIgMTMxLjYyNyA1OS44NjY2IDEzMi41NjcgNTkuODY2NkMxMzMuNTg2IDU5Ljg2NjYgMTM0LjM3NiA1OS40OTQ1IDEzNC45MzcgNTguNzUwNEMxMzUuNTEyIDU3Ljk5MzEgMTM1Ljc5OSA1Ni45NDg3IDEzNS43OTkgNTUuNjE3QzEzNS43OTkgNTQuMjIgMTM1LjQ3MiA1My4xNDI5IDEzNC44MiA1Mi4zODU3QzEzNC4yNTggNTEuNzE5OSAxMzMuNTA3IDUxLjM4NjkgMTMyLjU2NyA1MS4zODY5WiIgZmlsbD0iIzAxMTUyRSIvPgo8cGF0aCBkPSJNMTU4LjM2OSA1MC42NjIzSDE1Ni45QzE1Ni42NjUgNDkuNjk2MiAxNTYuMTc1IDQ4LjkzOSAxNTUuNDMxIDQ4LjM5MDZDMTU0LjY4NyA0Ny44NDIzIDE1My43ODYgNDcuNTY4MSAxNTIuNzI4IDQ3LjU2ODFDMTUxLjExIDQ3LjU2ODEgMTQ5Ljg2MyA0OC4xOTQ4IDE0OC45ODggNDkuNDQ4MkMxNDguMjE4IDUwLjU0NDggMTQ3LjgzMyA1MS45ODEgMTQ3LjgzMyA1My43NTY1QzE0Ny44MzMgNTUuNzQxIDE0OC4zMjkgNTcuMjg4MSAxNDkuMzIxIDU4LjM5NzlDMTUwLjE4MyA1OS4zNTA5IDE1MS4zMDUgNTkuODI3NSAxNTIuNjg5IDU5LjgyNzVDMTUzLjk2OSA1OS44Mjc1IDE1NS4wMiA1OS40MDk3IDE1NS44NDIgNTguNTc0MUMxNTYuNTYgNTcuODQzIDE1Ny4wMDQgNTYuODc2OSAxNTcuMTc0IDU1LjY3NTdIMTU4LjU0NUMxNTguMzc1IDU2Ljg3NjkgMTU4LjAxNiA1Ny44NjI2IDE1Ny40NjggNTguNjMyOUMxNTYuMzcxIDYwLjIyNTcgMTU0Ljc2NSA2MS4wMjIxIDE1Mi42NSA2MS4wMjIxQzE1MC42MTMgNjEuMDIyMSAxNDkuMDM0IDYwLjI3NzkgMTQ3LjkxMSA1OC43ODk1QzE0Ni45MzIgNTcuNDk3IDE0Ni40NDIgNTUuNzk5OCAxNDYuNDQyIDUzLjY5NzhDMTQ2LjQ0MiA1MS4yODI1IDE0Ny4wODggNDkuNDE1NSAxNDguMzgxIDQ4LjA5NjlDMTQ5LjQ5MSA0Ni45NDggMTUwLjk1OSA0Ni4zNzM1IDE1Mi43ODcgNDYuMzczNUMxNTQuMzI4IDQ2LjM3MzUgMTU1LjYwNyA0Ni44MDQ0IDE1Ni42MjYgNDcuNjY2MUMxNTcuNTEzIDQ4LjQyMzMgMTU4LjA5NCA0OS40MjIgMTU4LjM2OSA1MC42NjIzWiIgZmlsbD0iIzAxMTUyRSIvPgo8cGF0aCBkPSJNMTY2LjU1MSA1MC4yNzA3QzE2OC4wNTMgNTAuMjcwNyAxNjkuMjM0IDUwLjgyNTUgMTcwLjA5NiA1MS45MzUzQzE3MC44NTMgNTIuOTAxNCAxNzEuMjMyIDU0LjEzNTIgMTcxLjIzMiA1NS42MzY2QzE3MS4yMzIgNTcuMzQ2OSAxNzAuNzQ5IDU4LjY5ODEgMTY5Ljc4MyA1OS42OTA0QzE2OC45MzQgNjAuNTUyMSAxNjcuODU3IDYwLjk4MjkgMTY2LjU1MSA2MC45ODI5QzE2NS4wNSA2MC45ODI5IDE2My44NjggNjAuNDI4IDE2My4wMDcgNTkuMzE4M0MxNjIuMjUgNTguMzUyMiAxNjEuODcxIDU3LjEyNDkgMTYxLjg3MSA1NS42MzY2QzE2MS44NzEgNTMuOTEzMiAxNjIuMzU0IDUyLjU1NTQgMTYzLjMyIDUxLjU2MzJDMTY0LjE2OSA1MC43MDE1IDE2NS4yNDYgNTAuMjcwNyAxNjYuNTUxIDUwLjI3MDdaTTE2Ni41NTEgNTEuMzg2OUMxNjUuNDY4IDUxLjM4NjkgMTY0LjYxOSA1MS44MjQzIDE2NC4wMDYgNTIuNjk5QzE2My40NyA1My40NTYzIDE2My4yMDMgNTQuNDM1NCAxNjMuMjAzIDU1LjYzNjZDMTYzLjIwMyA1Ny4wMDc0IDE2My41NDkgNTguMDg0NSAxNjQuMjQxIDU4Ljg2NzlDMTY0LjgyOCA1OS41MzM3IDE2NS41OTggNTkuODY2NiAxNjYuNTUxIDU5Ljg2NjZDMTY3LjYzNSA1OS44NjY2IDE2OC40ODQgNTkuNDI5MyAxNjkuMDk3IDU4LjU1NDVDMTY5LjYzMyA1Ny43OTczIDE2OS45IDU2LjgyNDYgMTY5LjkgNTUuNjM2NkMxNjkuOSA1NC4yNjU3IDE2OS41NTQgNTMuMTg4NiAxNjguODYyIDUyLjQwNTNDMTY4LjI2MiA1MS43MjY0IDE2Ny40OTEgNTEuMzg2OSAxNjYuNTUxIDUxLjM4NjlaIiBmaWxsPSIjMDExNTJFIi8+CjxwYXRoIGQ9Ik0xNzUuMzI4IDUwLjU0NDhIMTc2LjU4MVY1MS45OTRDMTc3LjM2NCA1MC44NDUxIDE3OC40MjIgNTAuMjcwNyAxNzkuNzU0IDUwLjI3MDdDMTgwLjkyOSA1MC4yNzA3IDE4MS44MTYgNTAuNjIzMiAxODIuNDE3IDUxLjMyODJDMTgyLjg3NCA1MS44NjM1IDE4My4xMDIgNTIuNjc5NSAxODMuMTAyIDUzLjc3NjFWNjAuNzA4N0gxODEuODQ5VjU0LjA1MDNDMTgxLjg0OSA1My4xMTAzIDE4MS42ODYgNTIuNDU3NSAxODEuMzYgNTIuMDkxOUMxODAuOTY4IDUxLjYyMTkgMTgwLjM4IDUxLjM4NjkgMTc5LjU5NyA1MS4zODY5QzE3OC43MjIgNTEuMzg2OSAxNzcuOTkxIDUxLjY4NzIgMTc3LjQwNCA1Mi4yODc4QzE3Ni44NTUgNTIuODM2MSAxNzYuNTgxIDUzLjY1MjEgMTc2LjU4MSA1NC43MzU3VjYwLjcwODdIMTc1LjMyOFY1MC41NDQ4WiIgZmlsbD0iIzAxMTUyRSIvPgo8cGF0aCBkPSJNMTk1LjEwMiA1My40ODI0SDE5My43MTFDMTkzLjQ3NiA1Mi4wODU0IDE5Mi42MjEgNTEuMzg2OSAxOTEuMTQ2IDUxLjM4NjlDMTg5LjU1MyA1MS4zODY5IDE4OC43NTYgNTEuOTc0NCAxODguNzU2IDUzLjE0OTVDMTg4Ljc1NiA1My44OTM2IDE4OS4yNTkgNTQuMzgzMiAxOTAuMjY0IDU0LjYxODJMMTkyLjc3MSA1NS4yMjUzQzE5NC4zNzcgNTUuNjAzOSAxOTUuMTggNTYuNDQ2IDE5NS4xOCA1Ny43NTE2QzE5NS4xOCA1OC44MDkxIDE5NC43NzUgNTkuNjMxNiAxOTMuOTY2IDYwLjIxOTFDMTkzLjI2MSA2MC43MjgzIDE5Mi4zNTMgNjAuOTgyOSAxOTEuMjQ0IDYwLjk4MjlDMTg5LjcxNiA2MC45ODI5IDE4OC41ODcgNjAuNTQ1NSAxODcuODU2IDU5LjY3MDhDMTg3LjU1NSA1OS4zMDUyIDE4Ny4zNTMgNTguOTk4NCAxODcuMjQ5IDU4Ljc1MDRDMTg3LjE0NCA1OC40ODkzIDE4Ny4wODUgNTguMTMwMiAxODcuMDcyIDU3LjY3MzNIMTg4LjUwMkMxODguNTU0IDU4LjQ1NjYgMTg4Ljc5NiA1OS4wMTggMTg5LjIyNiA1OS4zNTc1QzE4OS42NTcgNTkuNjk2OSAxOTAuMzQ5IDU5Ljg2NjYgMTkxLjMwMiA1OS44NjY2QzE5Mi4wODYgNTkuODY2NiAxOTIuNzA2IDU5LjY5MDQgMTkzLjE2MyA1OS4zMzc5QzE5My42MiA1OC45ODU0IDE5My44NDggNTguNTA4OCAxOTMuODQ4IDU3LjkwODNDMTkzLjg0OCA1Ny4xMjQ5IDE5My4zMDYgNTYuNjA5MiAxOTIuMjIzIDU2LjM2MTJMMTg5Ljc1NSA1NS43NzM3QzE4OC4yMDIgNTUuNDA4MSAxODcuNDI1IDU0LjU0NjQgMTg3LjQyNSA1My4xODg2QzE4Ny40MjUgNTIuMjg3OCAxODcuNzU4IDUxLjU3NjIgMTg4LjQyNCA1MS4wNTRDMTg5LjEwMiA1MC41MzE4IDE5MC4wMjMgNTAuMjcwNyAxOTEuMTg1IDUwLjI3MDdDMTkyLjQxMiA1MC4yNzA3IDE5My4zODUgNTAuNjEwMSAxOTQuMTAzIDUxLjI4OUMxOTQuNzAzIDUxLjg2MzUgMTk1LjAzNiA1Mi41OTQ2IDE5NS4xMDIgNTMuNDgyNFoiIGZpbGw9IiMwMTE1MkUiLz4KPHBhdGggZD0iTTIwNi45ODYgNjAuNzA4N0gyMDUuNzMzVjU5LjI3OTFDMjA0Ljk2MiA2MC40MTUgMjAzLjkwNSA2MC45ODI5IDIwMi41NiA2MC45ODI5QzIwMS4zODUgNjAuOTgyOSAyMDAuNDk3IDYwLjYzMDQgMTk5Ljg5NyA1OS45MjU0QzE5OS40NCA1OS40MDMyIDE5OS4yMTEgNTguNTg3MiAxOTkuMjExIDU3LjQ3NzRWNTAuNTQ0OEgyMDAuNDY1VjU3LjIwMzNDMjAwLjQ2NSA1OC4xNDMzIDIwMC42MjggNTguNzk2MSAyMDAuOTU0IDU5LjE2MTZDMjAxLjM0NiA1OS42MzE2IDIwMS45MzMgNTkuODY2NiAyMDIuNzE3IDU5Ljg2NjZDMjAzLjU5MiA1OS44NjY2IDIwNC4zMjMgNTkuNTcyOSAyMDQuOTEgNTguOTg1NEMyMDUuNDU4IDU4LjQzNyAyMDUuNzMzIDU3LjYxNDUgMjA1LjczMyA1Ni41MTc4VjUwLjU0NDhIMjA2Ljk4NlY2MC43MDg3WiIgZmlsbD0iIzAxMTUyRSIvPgo8cGF0aCBkPSJNMjEyLjk1MyA0Ni42ODY5VjYwLjcwODdIMjExLjYyMlY0Ni42ODY5SDIxMi45NTNaIiBmaWxsPSIjMDExNTJFIi8+CjxwYXRoIGQ9Ik0yMjEuMTEyIDUwLjU0NDhWNTEuNTYzMkgyMTkuMjMyVjU4LjczMDhDMjE5LjIzMiA1OS4wNzAyIDIxOS4yODQgNTkuMzA1MiAyMTkuMzg5IDU5LjQzNThDMjE5LjUwNiA1OS41NTMzIDIxOS43MDkgNTkuNjEyIDIxOS45OTYgNTkuNjEyQzIyMC4zMjIgNTkuNjEyIDIyMC42ODEgNTkuNTQ2OCAyMjEuMDczIDU5LjQxNjJMMjIxLjI4OCA2MC41OTEyQzIyMC41ODMgNjAuNzYwOSAyMjAuMDA5IDYwLjg0NTggMjE5LjU2NSA2MC44NDU4QzIxOC45NTEgNjAuODQ1OCAyMTguNTIgNjAuNjk1NyAyMTguMjcyIDYwLjM5NTRDMjE4LjAyNCA2MC4wOTUxIDIxNy45IDU5LjU3OTQgMjE3LjkgNTguODQ4M1Y1MS41NjMySDIxNi40NTFWNTAuNTQ0OEgyMTcuOVY0OC40NDk0TDIxOS4yMzIgNDcuNTg3N1Y1MC41NDQ4SDIyMS4xMTJaIiBmaWxsPSIjMDExNTJFIi8+CjxwYXRoIGQ9Ik0yMjYuMDY4IDUwLjU0NDhWNjAuNzA4N0gyMjQuNzk1VjUwLjU0NDhIMjI2LjA2OFpNMjI1LjQ0MSA0Ni45NDE1QzIyNS42MzcgNDYuOTQxNSAyMjUuODA3IDQ3LjAxMzMgMjI1Ljk1IDQ3LjE1NjlDMjI2LjA5NCA0Ny4zMDA1IDIyNi4xNjYgNDcuNDc2NyAyMjYuMTY2IDQ3LjY4NTZDMjI2LjE2NiA0Ny44ODE1IDIyNi4wOTQgNDguMDU3NyAyMjUuOTUgNDguMjE0NEMyMjUuODA3IDQ4LjM1OCAyMjUuNjM3IDQ4LjQyOTggMjI1LjQ0MSA0OC40Mjk4QzIyNS4yMzIgNDguNDI5OCAyMjUuMDU2IDQ4LjM1OCAyMjQuOTEyIDQ4LjIxNDRDMjI0Ljc2OSA0OC4wNTc3IDIyNC42OTcgNDcuODgxNSAyMjQuNjk3IDQ3LjY4NTZDMjI0LjY5NyA0Ny40NzY3IDIyNC43NjkgNDcuMzAwNSAyMjQuOTEyIDQ3LjE1NjlDMjI1LjA1NiA0Ny4wMTMzIDIyNS4yMzIgNDYuOTQxNSAyMjUuNDQxIDQ2Ljk0MTVaIiBmaWxsPSIjMDExNTJFIi8+CjxwYXRoIGQ9Ik0yMzAuNzIzIDUwLjU0NDhIMjMxLjk3NlY1MS45OTRDMjMyLjc1OSA1MC44NDUxIDIzMy44MTcgNTAuMjcwNyAyMzUuMTQ4IDUwLjI3MDdDMjM2LjMyMyA1MC4yNzA3IDIzNy4yMTEgNTAuNjIzMiAyMzcuODEyIDUxLjMyODJDMjM4LjI2OSA1MS44NjM1IDIzOC40OTcgNTIuNjc5NSAyMzguNDk3IDUzLjc3NjFWNjAuNzA4N0gyMzcuMjQ0VjU0LjA1MDNDMjM3LjI0NCA1My4xMTAzIDIzNy4wODEgNTIuNDU3NSAyMzYuNzU0IDUyLjA5MTlDMjM2LjM2MyA1MS42MjE5IDIzNS43NzUgNTEuMzg2OSAyMzQuOTkyIDUxLjM4NjlDMjM0LjExNyA1MS4zODY5IDIzMy4zODYgNTEuNjg3MiAyMzIuNzk4IDUyLjI4NzhDMjMyLjI1IDUyLjgzNjEgMjMxLjk3NiA1My42NTIxIDIzMS45NzYgNTQuNzM1N1Y2MC43MDg3SDIzMC43MjNWNTAuNTQ0OFoiIGZpbGw9IiMwMTE1MkUiLz4KPHBhdGggZD0iTTI1MC4zOTggNTAuNTQ0OEgyNTEuNTkzVjU5LjU3MjlDMjUxLjU5MyA2MS4xNTI2IDI1MS4yNiA2Mi4yODE5IDI1MC41OTQgNjIuOTYwOEMyNDkuNzcyIDYzLjc5NjQgMjQ4LjYwMyA2NC4yMTQyIDI0Ny4wODkgNjQuMjE0MkMyNDUuODc1IDY0LjIxNDIgMjQ0LjkxNSA2My45NCAyNDQuMjEgNjMuMzkxN0MyNDMuNTgzIDYyLjkwODYgMjQzLjIzMSA2Mi4yNzU0IDI0My4xNTIgNjEuNDkyMUgyNDQuNTA0QzI0NC42MDggNjIuNTQ5NiAyNDUuNDc2IDYzLjA3ODMgMjQ3LjEwOCA2My4wNzgzQzI0OS4zMDIgNjMuMDc4MyAyNTAuMzk4IDYxLjk2ODYgMjUwLjM5OCA1OS43NDkxVjU4LjgyODdDMjQ5LjQ3MSA1OS45Nzc2IDI0OC4zNDkgNjAuNTUyMSAyNDcuMDMgNjAuNTUyMUMyNDUuNjIgNjAuNTUyMSAyNDQuNDkxIDYwLjAxNjggMjQzLjY0MiA1OC45NDYyQzI0Mi45MTEgNTguMDA2MiAyNDIuNTQ1IDU2Ljg0NDIgMjQyLjU0NSA1NS40NjAzQzI0Mi41NDUgNTMuODQxNCAyNDMuMDI4IDUyLjUzNTggMjQzLjk5NSA1MS41NDM2QzI0NC44MyA1MC42OTUgMjQ1Ljg2MiA1MC4yNzA3IDI0Ny4wODkgNTAuMjcwN0MyNDguNDg2IDUwLjI3MDcgMjQ5LjU4OSA1MC44NTgyIDI1MC4zOTggNTIuMDMzMlY1MC41NDQ4Wk0yNDcuMTQ4IDUxLjM4NjlDMjQ2LjE5NCA1MS4zODY5IDI0NS4zOTggNTEuNzU5IDI0NC43NTggNTIuNTAzMkMyNDQuMTcxIDUzLjIwODIgMjQzLjg3NyA1NC4xNzQzIDI0My44NzcgNTUuNDAxNkMyNDMuODc3IDU2LjY5NDEgMjQ0LjIxNiA1Ny43MTI0IDI0NC44OTUgNTguNDU2NkMyNDUuNDgzIDU5LjA5NjMgMjQ2LjIzNCA1OS40MTYyIDI0Ny4xNDggNTkuNDE2MkMyNDguMTkyIDU5LjQxNjIgMjQ5LjAxNCA1OS4wMDUgMjQ5LjYxNSA1OC4xODI0QzI1MC4xMzcgNTcuNDUxMyAyNTAuMzk4IDU2LjUyNDQgMjUwLjM5OCA1NS40MDE2QzI1MC4zOTggNTQuMTYxMyAyNTAuMTA1IDUzLjE5NTIgMjQ5LjUxNyA1Mi41MDMyQzI0OC44NzcgNTEuNzU5IDI0OC4wODggNTEuMzg2OSAyNDcuMTQ4IDUxLjM4NjlaIiBmaWxsPSIjMDExNTJFIi8+CjxwYXRoIGQ9Ik0wIDE0LjIyMDVDMCA2LjM2NjcxIDYuMzY2NzEgMCAxNC4yMjA1IDBINTYuODgxOEM2NC43MzU2IDAgNzEuMTAyMyA2LjM2NjcxIDcxLjEwMjMgMTQuMjIwNVY1Ni44ODE4QzcxLjEwMjMgNjQuNzM1NiA2NC43MzU2IDcxLjEwMjMgNTYuODgxOCA3MS4xMDIzSDE0LjIyMDVDNi4zNjY3MSA3MS4xMDIzIDAgNjQuNzM1NiAwIDU2Ljg4MThWMTQuMjIwNVoiIGZpbGw9IiMwMTE1MkUiLz4KPHBhdGggZD0iTTMyLjMwMTggNTAuNzY4NEwzOS43MDM2IDM4LjQxODFMNDIuOTYwNCAyNi45NUw1NC41MDcyIDM4LjQxODFMNjIuNTAxMiA1MC43Njg0TDU3LjE3MTkgNjEuMzU0NEw0NS45MjExIDU5LjU5TDMyLjMwMTggNTAuNzY4NFoiIGZpbGw9IiNGRTkxNkQiLz4KPHBhdGggZD0iTTMyLjMwMTggNTAuNzY4NEwzOS43MDM2IDM4LjQxODFMNDIuOTYwNCAyNi45NUw1NC41MDcyIDM4LjQxODFMNjIuNTAxMiA1MC43Njg0TDU3LjE3MTkgNjEuMzU0NEw0NS45MjExIDU5LjU5TDMyLjMwMTggNTAuNzY4NFoiIGZpbGw9IiNGRTkxNkQiLz4KPHBhdGggZD0iTTI4LjA2MjEgMzguNDg1M0wyNi41NjE5IDI0LjM5MjNMMzEuOTAyMiAxNy40NjA0TDM5LjcwMzYgMzAuMTkxNEwzNi43MTkyIDM0LjIxMDFMMjguMDYyMSAzOC40ODUzWiIgZmlsbD0iI0ZFOTE2RCIvPgo8cGF0aCBkPSJNMjguMDYyMSAzOC40ODUzTDI2LjU2MTkgMjQuMzkyM0wzMS45MDIyIDE3LjQ2MDRMMzkuNzAzNiAzMC4xOTE0TDM2LjcxOTIgMzQuMjEwMUwyOC4wNjIxIDM4LjQ4NTNaIiBmaWxsPSIjRkU5MTZEIi8+CjxwYXRoIGQ9Ik0yMi40NDIxIDE4LjY4ODFMMjcuMTE1OSAxMS42NTkyTDM0LjQ3NTMgMjcuNjU2MkwyMi40NDIxIDQ3Ljk3NDlMMTQuODQ3MiA0NS4zMzkxTDcuODM2NTQgNDEuNTMxOEwxMS44MzE4IDI4Ljc2MzRMMTQuODQ3MiAzNC4yMTAxTDE3Ljc2ODQgMjMuOTU5N0wyMi40NDIxIDE4LjY4ODFaIiBmaWxsPSIjRkU5MTZEIi8+CjxwYXRoIGQ9Ik0yMi40NDIxIDE4LjY4ODFMMjcuMTE1OSAxMS42NTkyTDM0LjQ3NTMgMjcuNjU2MkwyMi40NDIxIDQ3Ljk3NDlMMTQuODQ3MiA0NS4zMzkxTDcuODM2NTQgNDEuNTMxOEwxMS44MzE4IDI4Ljc2MzRMMTQuODQ3MiAzNC4yMTAxTDE3Ljc2ODQgMjMuOTU5N0wyMi40NDIxIDE4LjY4ODFaIiBmaWxsPSIjRkU5MTZEIi8+Cjwvc3ZnPgo=" alt="Alpenglow logo" style="width:220px;height:auto;">
+        
+        <div class="report-info">
+          <h1>AWS Cost Report</h1>
+          <div class="meta">
+            Client: <strong>test-aws-client</strong><br>
+            30-Day (daily): <strong>2025-09-01 → 2025-10-01 (end exclusive)</strong><br>
+            12-Month (monthly): <strong>2024-09-01 → 2025-09-01 (end exclusive)</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+  <div class="wrap">
+    
+    
+
+
+    <!-- ===== High-Impact Cost Checks (Heuristics) ===== -->
+    <section class="avoid-break">
+      <h2>High-Impact Cost Checks</h2>
+      <p class="note">
+        This section summarizes potential savings and risks (e.g., idle EC2, unattached EBS, data transfer spikes).
+        It can be auto-generated and optionally edited before sending to a client.
+      </p>
+
+     
+        <ul>
+          
+            <li>✅ EC2: All instances reviewed — no idle/oversized detected.</li>
+          
+            <li>✅ S3: Buckets within expected thresholds.</li>
+          
+            <li>✅ Data Transfer: No suspicious inter-region transfer spikes.</li>
+          
+            <li>✅ EBS: All attached volumes showed consistent activity.</li>
+          
+        </ul>
+      
+ 
+    </section>
+
+    <!-- ===== Page 1 — CEO Summary (story first, visuals second) ===== -->
+    <section class="avoid-break">
+      <h2>Executive Summary</h2>
+
+      <ul class="bullets">
+        <li>Past 30 days spend: $2.</li>
+        <li>Potential savings: (placeholder – actual cost savings will go here)</li>
+        <li>Largest daily spike on 2025-09-29: $0 (≈86% above 7-day avg).</li>
+        <li>Trend: N/A (not enough data for 60 days).</li>
+      </ul>
+
+      <!-- Projected Savings Summary -->
+      
+      <div class="callouts">
+        <h3>Projected Savings Summary</h3>
+        <ul>
+          <li><strong>Estimated Monthly Savings:</strong> $0 </li>
+          <li><strong>Estimated Annual Impact:</strong> $0.0</li>
+        </ul>
+      </div>
+      
+
+      <div class="charts">
+        
+          <div class="chart avoid-break">
+            <h3>Past 30 Days — Total Daily Spend</h3>
+            <img src="assets/img/chart_30d_total_2025-09-01_to_2025-10-01.png" alt="30-day total daily spend">
+          </div>
+        
+        
+      </div>
+    </section>
+
+    <!-- ===== 30-Day Deep Dive (Microscope) ===== -->
+    <section class="page-break">
+      <h2>30-Day Deep Dive (Daily)</h2>
+
+      
+        <div class="chart avoid-break">
+          <h3>Per-Service Daily Spend (Top 5)</h3>
+          <img src="assets/img/chart_30d_per_service_2025-09-01_to_2025-10-01.png" alt="Per-service daily spend (top 5)">
+        </div>
+      
+
+      <!-- Daily anomalies summary (spike markers are drawn on charts; list here for quick scan) -->
+      <div class="callouts">
+        <h3>Anomaly Highlights (Daily)</h3>
+        
+          <ul>
+            
+              <li class="anomaly">
+                2025-09-29 — $0.0 (≈86.0% above 7-day avg)
+              </li>
+            
+          </ul>
+        
+      </div>
+
+      <!-- Daily table (Top 5 + Total) -->
+      <h3>Daily Table (Top Services + Total)</h3>
+      <table class="avoid-break">
+        <thead>
+          <tr>
+            
+              <th class="">date</th>
+            
+              <th class="right">Amazon Elastic Compute Cloud - Compute</th>
+            
+              <th class="right">Amazon Virtual Private Cloud</th>
+            
+              <th class="right">AWS Cost Explorer</th>
+            
+              <th class="right">EC2 - Other</th>
+            
+              <th class="right">Tax</th>
+            
+              <th class="right">Total</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          
+            <tr>
+              
+                
+                  <td>2025-09-22</td>
+                
+              
+                
+                  <td class="right">$0.0</td>
+                
+              
+                
+                  <td class="right">$0.0</td>
+                
+              
+                
+                  <td class="right">$0.0</td>
+                
+              
+                
+                  <td class="right">$0.0</td>
+                
+              
+                
+                  <td class="right">$0.1</td>
+                
+              
+                
+                  <td class="right">$0.1</td>
+                
+              
+            </tr>
+          
+            <tr>
+              
+                
+                  <td>2025-09-23</td>
+                
+              
+                
+                  <td class="right">$0.01</td>
+                
+              
+                
+                  <td class="right">$0.01</td>
+                
+              
+                
+                  <td class="right">$0.0</td>
+                
+              
+                
+                  <td class="right">$0.0</td>
+                
+              
+                
+                  <td class="right">$0.0</td>
+                
+              
+                
+                  <td class="right">$0.03</td>
+                
+              
+            </tr>
+          
+            <tr>
+              
+                
+                  <td>2025-09-24</td>
+                
+              
+                
+                  <td class="right">$0.14</td>
+                
+              
+                
+                  <td class="right">$0.12</td>
+                
+              
+                
+                  <td class="right">$0.0</td>
+                
+              
+                
+                  <td class="right">$0.02</td>
+                
+              
+                
+                  <td class="right">$0.0</td>
+                
+              
+                
+                  <td class="right">$0.28</td>
+                
+              
+            </tr>
+          
+            <tr>
+              
+                
+                  <td>2025-09-25</td>
+                
+              
+                
+                  <td class="right">$0.14</td>
+                
+              
+                
+                  <td class="right">$0.12</td>
+                
+              
+                
+                  <td class="right">$0.02</td>
+                
+              
+                
+                  <td class="right">$0.02</td>
+                
+              
+                
+                  <td class="right">$0.0</td>
+                
+              
+                
+                  <td class="right">$0.3</td>
+                
+              
+            </tr>
+          
+            <tr>
+              
+                
+                  <td>2025-09-26</td>
+                
+              
+                
+                  <td class="right">$0.14</td>
+                
+              
+                
+                  <td class="right">$0.12</td>
+                
+              
+                
+                  <td class="right">$0.03</td>
+                
+              
+                
+                  <td class="right">$0.02</td>
+                
+              
+                
+                  <td class="right">$0.0</td>
+                
+              
+                
+                  <td class="right">$0.31</td>
+                
+              
+            </tr>
+          
+            <tr>
+              
+                
+                  <td>2025-09-27</td>
+                
+              
+                
+                  <td class="right">$0.14</td>
+                
+              
+                
+                  <td class="right">$0.12</td>
+                
+              
+                
+                  <td class="right">$0.0</td>
+                
+              
+                
+                  <td class="right">$0.02</td>
+                
+              
+                
+                  <td class="right">$0.0</td>
+                
+              
+                
+                  <td class="right">$0.28</td>
+                
+              
+            </tr>
+          
+            <tr>
+              
+                
+                  <td>2025-09-28</td>
+                
+              
+                
+                  <td class="right">$0.14</td>
+                
+              
+                
+                  <td class="right">$0.12</td>
+                
+              
+                
+                  <td class="right">$0.0</td>
+                
+              
+                
+                  <td class="right">$0.02</td>
+                
+              
+                
+                  <td class="right">$0.0</td>
+                
+              
+                
+                  <td class="right">$0.28</td>
+                
+              
+            </tr>
+          
+            <tr>
+              
+                
+                  <td>2025-09-29</td>
+                
+              
+                
+                  <td class="right">$0.14</td>
+                
+              
+                
+                  <td class="right">$0.12</td>
+                
+              
+                
+                  <td class="right">$0.14</td>
+                
+              
+                
+                  <td class="right">$0.02</td>
+                
+              
+                
+                  <td class="right">$0.0</td>
+                
+              
+                
+                  <td class="right">$0.42</td>
+                
+              
+            </tr>
+          
+            <tr>
+              
+                
+                  <td>2025-09-30</td>
+                
+              
+                
+                  <td class="right">$0.08</td>
+                
+              
+                
+                  <td class="right">$0.08</td>
+                
+              
+                
+                  <td class="right">$0.01</td>
+                
+              
+                
+                  <td class="right">$0.01</td>
+                
+              
+                
+                  <td class="right">$0.0</td>
+                
+              
+                
+                  <td class="right">$0.19</td>
+                
+              
+            </tr>
+          
+          
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ===== 12-Month Deep Dive (Telescope) ===== -->
+    <section class="page-break">
+      <h2>12-Month Deep Dive (Monthly)</h2>
+
+      
+
+      <div class="callouts">
+        <h3>MoM Anomaly Highlights (Monthly)</h3>
+        
+          <p class="note">No month-over-month anomalies detected in the last year.</p>
+        
+      </div>
+
+      <!-- Monthly table (Top 5 + Other + Total) -->
+      <h3>Monthly Table (Top Services + Other + Total)</h3>
+      <table class="avoid-break">
+        <thead>
+          <tr>
+            
+              <th class="">month_start</th>
+            
+              <th class="right">Total</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          
+          
+            <tr><td colspan="2" class="note">No monthly data available.</td></tr>
+          
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ===== Top Services Snapshot (30d) ===== -->
+    <section class="page-break">
+      <h2>Top Services (Past 30 Days)</h2>
+      
+        <div class="chart avoid-break">
+          <img src="assets/img/chart_top5_30d_2025-09-01_to_2025-10-01.png" alt="Top 5 services (30d)">
+        </div>
+      
+    </section>
+
+
+
+    <footer>
+      © 2025 Alpenglow Cloud Consulting · Report generated 2025-10-01 17:08
+    </footer>
+  </div>
+</body>
+</html>
+

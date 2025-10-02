@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Alpenglow AWS Cost Report — {{ client_alias }} — {{ label_slug }}</title>
+  <link rel="stylesheet" href="{{ css_path }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+
+<body>
+  <!-- ===== Header ===== -->
+  <header>
+    <div class="wrap head">
+      <div class="brand">
+        {% if logo_data_uri %}
+          <img src="{{ logo_data_uri }}" alt="Alpenglow logo" style="width:220px;height:auto;">
+        {% endif %}
+        <div class="report-info">
+          <h1>AWS Cost Report</h1>
+          <div class="meta">
+            Client: <strong>{{ client_alias }}</strong><br>
+            30-Day (daily): <strong>{{ window_daily.start }} → {{ window_daily.end_exclusive }} (end exclusive)</strong><br>
+            12-Month (monthly): <strong>{{ window_monthly.start }} → {{ window_monthly.end_exclusive }} (end exclusive)</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+  <div class="wrap">
+    {% set heuristics = heuristics|default([]) %}
+    {% set check_summary = check_summary|default([]) %}
+
+
+    <!-- ===== High-Impact Cost Checks (Heuristics) ===== -->
+    <section class="avoid-break">
+      <h2>High-Impact Cost Checks</h2>
+      <p class="note">
+        This section summarizes potential savings and risks (e.g., idle EC2, unattached EBS, data transfer spikes).
+        It can be auto-generated and optionally edited before sending to a client.
+      </p>
+
+     {% if heuristics and heuristics|length > 0 %}
+       <ul>
+        {% for item in heuristics %}
+          <li>{{ item }}</li>
+        {% endfor %}
+      </ul>
+      {% else %}
+        <ul>
+          {% for check in check_summary %}
+            <li>{{ check }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+ 
+    </section>
+
+    <!-- ===== Page 1 — CEO Summary (story first, visuals second) ===== -->
+    <section class="avoid-break">
+      <h2>Executive Summary</h2>
+
+      <ul class="bullets">
+        <li>{{ ceo.headline }}</li>
+        <li>{{ ceo.savings }}</li>
+        <li>{{ ceo.spike }}</li>
+        <li>{{ ceo.trend }}</li>
+      </ul>
+
+      <!-- Projected Savings Summary -->
+      {% if savings_summary %}
+      <div class="callouts">
+        <h3>Projected Savings Summary</h3>
+        <ul>
+          <li><strong>Estimated Monthly Savings:</strong> ${{ '%.0f' | format(savings_summary.monthly) | replace(',', '') }} </li>
+          <li><strong>Estimated Annual Impact:</strong> ${{ savings_summary.annual | round(0) }}</li>
+        </ul>
+      </div>
+      {% endif %}
+
+      <div class="charts">
+        {% if charts.daily_total_30d %}
+          <div class="chart avoid-break">
+            <h3>Past 30 Days — Total Daily Spend</h3>
+            <img src="{{ charts.daily_total_30d }}" alt="30-day total daily spend">
+          </div>
+        {% endif %}
+        {% if charts.monthly_total_12m %}
+          <div class="chart avoid-break">
+            <h3>Last 12 Months — Total Monthly Spend</h3>
+            <img src="{{ charts.monthly_total_12m }}" alt="12-month total monthly spend">
+          </div>
+        {% endif %}
+      </div>
+    </section>
+
+    <!-- ===== 30-Day Deep Dive (Microscope) ===== -->
+    <section class="page-break">
+      <h2>30-Day Deep Dive (Daily)</h2>
+
+      {% if charts.daily_per_service_30d %}
+        <div class="chart avoid-break">
+          <h3>Per-Service Daily Spend (Top 5)</h3>
+          <img src="{{ charts.daily_per_service_30d }}" alt="Per-service daily spend (top 5)">
+        </div>
+      {% endif %}
+
+      <!-- Daily anomalies summary (spike markers are drawn on charts; list here for quick scan) -->
+      <div class="callouts">
+        <h3>Anomaly Highlights (Daily)</h3>
+        {% if anomalies.daily_spikes and anomalies.daily_spikes|length > 0 %}
+          <ul>
+            {% for s in anomalies.daily_spikes %}
+              <li class="anomaly">
+                {{ s.date }} — ${{ s.total | round(0) }} (≈{{ (s.spike_pct * 100) | round(0) }}% above 7-day avg)
+              </li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <p class="note">No unusual daily spikes detected in the last 30 days.</p>
+        {% endif %}
+      </div>
+
+      <!-- Daily table (Top 5 + Total) -->
+      <h3>Daily Table (Top Services + Total)</h3>
+      <table class="avoid-break">
+        <thead>
+          <tr>
+            {% for col in daily_table_columns %}
+              <th class="{{ 'right' if col != 'date' }}">{{ col }}</th>
+            {% endfor %}
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in daily_table_rows %}
+            <tr>
+              {% for col in daily_table_columns %}
+                {% if col == 'date' %}
+                  <td>{{ row[col] }}</td>
+                {% else %}
+                  <td class="right">${{ row[col] | round(2) }}</td>
+                {% endif %}
+              {% endfor %}
+            </tr>
+          {% endfor %}
+          {% if not daily_table_rows or daily_table_rows|length == 0 %}
+            <tr><td colspan="{{ daily_table_columns|length }}" class="note">No daily data available for this window.</td></tr>
+          {% endif %}
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ===== 12-Month Deep Dive (Telescope) ===== -->
+    <section class="page-break">
+      <h2>12-Month Deep Dive (Monthly)</h2>
+
+      {% if charts.monthly_stacked_12m %}
+        <div class="chart avoid-break">
+          <h3>Monthly Spend by Service (Top 5 + Other)</h3>
+          <img src="{{ charts.monthly_stacked_12m }}" alt="12-month stacked by service">
+        </div>
+      {% endif %}
+
+      <div class="callouts">
+        <h3>MoM Anomaly Highlights (Monthly)</h3>
+        {% if anomalies.mom_spikes and anomalies.mom_spikes|length > 0 %}
+          <ul>
+            {% for m in anomalies.mom_spikes %}
+              <li class="anomaly">
+                {{ m.month_start }} — ${{ m.total | round(0) }}
+                ({{ '↑' if m.delta_pct >= 0 else '↓' }}{{ (m.delta_pct * 100) | round(1) }}% vs prior month)
+              </li>
+            {% endfor %}
+          </ul>
+        {% else %}
+          <p class="note">No month-over-month anomalies detected in the last year.</p>
+        {% endif %}
+      </div>
+
+      <!-- Monthly table (Top 5 + Other + Total) -->
+      <h3>Monthly Table (Top Services + Other + Total)</h3>
+      <table class="avoid-break">
+        <thead>
+          <tr>
+            {% for col in monthly_table_columns %}
+              <th class="{{ 'right' if col != 'month_start' }}">{{ col }}</th>
+            {% endfor %}
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in monthly_table_rows %}
+            <tr>
+              {% for col in monthly_table_columns %}
+                {% if col == 'month_start' %}
+                  <td>{{ row[col] }}</td>
+                {% else %}
+                  <td class="right">${{ row[col] | round(2) }}</td>
+                {% endif %}
+              {% endfor %}
+            </tr>
+          {% endfor %}
+          {% if not monthly_table_rows or monthly_table_rows|length == 0 %}
+            <tr><td colspan="{{ monthly_table_columns|length }}" class="note">No monthly data available.</td></tr>
+          {% endif %}
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ===== Top Services Snapshot (30d) ===== -->
+    <section class="page-break">
+      <h2>Top Services (Past 30 Days)</h2>
+      {% if charts.top5_services_30d %}
+        <div class="chart avoid-break">
+          <img src="{{ charts.top5_services_30d }}" alt="Top 5 services (30d)">
+        </div>
+      {% else %}
+        <p class="note">Top services chart will appear here once data is available.</p>
+      {% endif %}
+    </section>
+
+
+
+    <footer>
+      © {{ now_year }} Alpenglow Cloud Consulting · Report generated {{ generated_at }}
+    </footer>
+  </div>
+</body>
+</html>
+
+
