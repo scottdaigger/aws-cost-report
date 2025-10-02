@@ -12,14 +12,6 @@ Reports summarize both **short-term (30-day)** and **long-term (12-month)** usag
 - **Custom Templates**: HTML via Jinja2 + PDF rendering via WeasyPrint  
 - **Quickstart** with Python virtual environment  
 
-## Quickstart
-```bash
-python -m venv .venv
-.\.venv\Scripts\activate
-pip install -r requirements.txt
-python run_report.py
-Ensure you’ve set up AWS CLI credentials (the script uses Cost Explorer).
-
 ## Tech Stack
 Python 3.10+
 
@@ -42,3 +34,11 @@ Enhance narrative insights for executive summaries
 MIT License — see LICENSE for details.
 
 This project is part of my portfolio demonstrating applied FinOps and AWS reporting skills.
+
+## Quickstart
+```bash
+python -m venv .venv
+.\.venv\Scripts\activate
+pip install -r requirements.txt
+python run_report.py
+Ensure you’ve set up AWS CLI credentials (the script uses Cost Explorer).
